@@ -1,0 +1,59 @@
+header,
+main,
+footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width: 1092px) {
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
+}
+
+.red {
+    background-color: #d9534f !important;
+}
+
+.blue {
+    background-color: #428bca !important;
+}
+
+.tabs .tab a {
+    color: #000;
+}
+
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    color: #000;
+}
+
+.tabs .indicator {
+    background-color: #428bca;
+}
+
+nav {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.dropdown-content li:hover,
+.dropdown-content li.active,
+.dropdown-content li.selected {
+    background-color: #428bca;
+    color: #fff;
+}
+
+.dropdown-content li > a,
+.dropdown-content li > span {
+    color: #000;
+}
+
+.secondary-content {
+  color: #428bca;
+}
+
+.side-nav a:hover {
+  background-color: #428bca;
+}

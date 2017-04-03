@@ -1,0 +1,225 @@
+<div ng-controller="vehiclesCtrl">
+    <br>
+    <div class="row">
+        <div ng-controller="vehicleCtrl">
+            {{getDeviceSelect}}
+            <!--vehiculos-->
+            <div class="col s6">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>{{translation.vehicle1}}</h4></li>
+                    <li class="collection-item" ng-repeat="item in vehicle">
+                        <div ng-click="clickevent(item.id, item.id_fleet, item.id_driver, item.id_vehicletype, item.name, item.make, item.model, item.year, item.plate, item.odometer, item.color, item.installation_date_time, item.chassis_number, item.factory_color)">{{item.name}}<i class="material-icons secondary-content">send</i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s6">
+                <!--datos-->
+                <h5>{{translation.vehicle2}}</h5>
+                <div class="input-field col s12">
+                    <select class="" id="tipo" ng-model="selectedFleet" ng-options="item.id as item.name for item in fleet" material-select watch>
+                        <option value="" disabled selected>{{translation.vehicle3}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <select class="" id="tipo" ng-model="selectedDriver" ng-options="item.id as item.name for item in driver" material-select watch>
+                        <option value="" disabled selected>{{translation.vehicle4}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <select class="" id="tipo" ng-model="selectedVehicleType" ng-options="item.id as item.type for item in vehicleType" material-select watch>
+                        <option value="" disabled selected>{{translation.vehicle5}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="name" class="input-field col s12" ng-model="name">
+                    <label class="active" for="name">{{translation.vehicle6}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="make" class="input-field col s12" ng-model="make">
+                    <label class="active" for="make">{{translation.vehicle7}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="model" class="input-field col s12" ng-model="model">
+                    <label class="active" for="model">{{translation.vehicle8}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="year" class="input-field col s12" ng-model="year">
+                    <label class="active" for="year">{{translation.vehicle9}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="plate" class="input-field col s12" ng-model="plate">
+                    <label class="active" for="plate">{{translation.vehicle10}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="odo" class="input-field col s12" ng-model="odometer">
+                    <label class="active" for="odo">{{translation.vehicle11}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="color" id="color" class="input-field col s12" ng-model="color">
+                    <label class="active" for="color">{{translation.vehicle12}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <select class="" id="device" ng-model="selectedDevice" ng-options="item.system_id as item.system_id for item in device" material-select watch>
+                        <option value="" disabled selected>{{translation.vehicle13}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <select class="" id="tel" ng-model="selectedTel" ng-options="item.phone_number as item.phone_number for item in device" material-select watch>
+                        <option value="" disabled selected>{{translation.vehicle14}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <input type="date" id="fecha" class="datepicker" ng-model="inst">
+                    <label class="active" for="fecha">{{translation.vehicle15}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="chasis" class="input-field col s12" ng-model="chassis_number">
+                    <label class="active" for="chasis">{{translation.vehicle16}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="color" id="colorChasis" class="input-field col s12" ng-model="factory_color">
+                    <label class="active" for="colorChasis">{{translation.vehicle17}}</label>
+                </div>
+                <!--dias de la semana-->
+                <br>
+                <h5>{{translation.vehicle18}}</h5>
+                <div class="input-field col s12">
+                    <p>
+                        <input type="checkbox" id="lunes" ng-model="day1" />
+                        <label for="lunes">{{translation.vehicle19}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Martes" ng-model="day2" />
+                        <label for="Martes">{{translation.vehicle20}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Miercoles" ng-model="day3" />
+                        <label for="Miercoles">{{translation.vehicle21}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Jueves" ng-model="day4" />
+                        <label for="Jueves">{{translation.vehicle22}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Viernes" ng-model="day5" />
+                        <label for="Viernes">{{translation.vehicle23}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Sabado" ng-model="day6" />
+                        <label for="Sabado">{{translation.vehicle24}}</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="Domingo" ng-model="day7" />
+                        <label for="Domingo">{{translation.vehicle25}}</label>
+                    </p>
+                </div>
+                <!--zonas de seguridad-->
+                <br>
+                <h5>{{translation.vehicle26}}</h5>
+                <div class="input-field col s12">
+                    <div class="col s6">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h5>{{translation.vehicle27}}</h5></li>
+                            <li class="collection-item" ng-repeat="item in poi">
+                                <div ng-click="clickInsPoi(item.id, item.name)">{{item.name}}<i class="material-icons secondary-content">chevron_right</i></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s6">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h5>{{translation.vehicle28}}</h5></li>
+                            <li class="collection-item" ng-repeat="item in arrPoi">
+                                <div ng-click="clickDelPoi($index)">{{item.name}}<i class="material-icons secondary-content">close</i></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--rutas de seguridad-->
+                <h5>{{translation.vehicle29}}</h5>
+                <div class="input-field col s12">
+                    <div class="col s6">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h5>{{translation.vehicle30}}</h5></li>
+                            <li class="collection-item" ng-repeat="item in SecRoute">
+                                <div ng-click="clickInsSec(item.id, item.id_securityroute, item.id_vehicle, item.time_control, item.start_time, item.end_time, item.stop_control, item.name)">{{item.name}}<i class="material-icons secondary-content">chevron_right</i></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s6">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h5>{{translation.vehicle31}}</h5></li>
+                            <li class="collection-item" ng-repeat="item in arrSec">
+                                <div ng-click="clickCargaSeguridad($index)">{{item.name}}</div>
+                                <div ng-click="clickDelSec($index)"><i class="material-icons secondary-content">close</i></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <label>{{translation.vehicle32}}
+                            <input type="checkbox" ng-model="timeControl" id="tc"> <span class="lever"></span> </label>
+                    </div>
+                    <br>
+                    <br> </div>
+                <div class="input-field col s12">
+                    <div class="input-field col s12">
+                        <label for="start">{{translation.vehicle33}}</label>
+                        <input id="start" class="timepicker" type="time" ng-model="startTime"> </div>
+                </div>
+                <div class="input-field col s12">
+                    <div class="input-field col s12">
+                        <label for="start">{{translation.vehicle34}}</label>
+                        <input id="end" class="timepicker" type="time" ng-model="endTime"> </div>
+                </div>
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <label>{{translation.vehicle35}}
+                            <input type="checkbox" ng-model="stopControl" id="so"> <span class="lever"></span> </label>
+                        <br>
+                        <br>
+                        <br>
+                        <button class="waves-effect waves-light btn blue" ng-click="clickGuardaSeguridad()">{{translation.vehicle36}} <i class="fa fa-save"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn red" ng-click="cancelVehicle()">{{translation.buttonCancel}} <i class="fa fa-remove"></i></button>
+                <button id="updateV" class="waves-effect waves-light btn blue" ng-click="updateVehicle()">{{translation.buttonUpdate}} <i class="material-icons">check</i></button>
+                <button id="insertV" class="waves-effect waves-light btn blue" ng-click="insertVehicle()">{{translation.buttonCreate}} <i class="material-icons">check</i></button>
+            </div>
+            <!--Menu-->
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"> <i class="material-icons">apps</i> </a>
+                <ul>
+                    <li data-toggle="tooltip" data-placement="left" title="Borrar vehiculo"><a class="btn-floating red {{isDisabled}}" ng-click="deleteVehicle()" id="vehiculoB"><i class="material-icons">remove</i></a></li>
+                    <li data-toggle="tooltip" data-placement="left" title="Nuevo"><a id="nuevo" class="btn-floating green" ng-click="limpiarVehicle()"><i class="material-icons">add</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#insertV').hide();
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+        $('#start').pickatime({
+            autoclose: false,
+            twelvehour: false,
+            default: new Date()
+        });
+        $('#end').pickatime({
+            autoclose: false,
+            twelvehour: false,
+            default: new Date()
+        });
+    });
+</script>

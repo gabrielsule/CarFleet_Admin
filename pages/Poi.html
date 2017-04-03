@@ -1,0 +1,58 @@
+<div ng-controller="poisCtrl">
+    <br>
+    <div class="row">
+        <div ng-controller="poiCtrl">
+            <div class="col s6">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>{{translation.poi1}}</h4></li>
+                    <li class="collection-item" ng-repeat="item in poi">
+                        <div ng-click="clickevent($index, item.id, item.id_poitype, item.name, item.latitude, item.longitude, item.radius)">{{item.name}}<i class="material-icons secondary-content">send</i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s6">
+                <div class="input-field col s12">
+                    <input type="text" id="poi" class="input-field col s12" ng-model="name">
+                    <label class="active" for="poi">{{translation.poi2}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="lat" class="input-field col s12" ng-model="latitude">
+                    <label class="active" for="lat">{{translation.poi3}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="lng" class="input-field col s12" ng-model="longitude">
+                    <label class="active" for="lng">{{translation.poi4}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="rad" class="input-field col s12" ng-model="radius">
+                    <label class="active" for="rad">{{translation.poi5}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <select class="" id="tipo" ng-model="selectedPoiType" ng-options="item.id as item.name for item in types" material-select watch>
+                        <option value="" disabled selected>{{translation.poi6}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn red" ng-click="cancelPoi()">{{translation.buttonCancel}} <i class="fa fa-remove"></i></button>
+                <button id="updateP" class="waves-effect waves-light btn blue" ng-click="updatePoi()">{{translation.buttonUpdate}} <i class="material-icons">check</i></button>
+                <button id="insertP" class="waves-effect waves-light btn blue" ng-click="insertPoi()">{{translation.buttonCreate}} <i class="material-icons">check</i></button>
+            </div>
+            <!--Menu-->
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"> <i class="material-icons">apps</i> </a>
+                <ul>
+                    <li data-toggle="tooltip" data-placement="left" title="Borrar"><a class="btn-floating red {{isDisabled}}" ng-click="deletePoi()"><i class="material-icons">remove</i></a></li>
+                    <li data-toggle="tooltip" data-placement="left" title="Nuevo"><a id="nuevo" class="btn-floating green" ng-click="limpiarPoi()"><i class="material-icons">add</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $
+        $("#insertP").hide();
+    });
+</script>

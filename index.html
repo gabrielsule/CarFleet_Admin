@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/vendor/materialize.css">
+    <link rel="stylesheet" href="css/vendor/materialize.clockpicker.css">
+    <link rel="stylesheet" href="css/asset/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> </head>
+
+<body ng-controller="companiesCtrl">
+    <header>
+
+        <ul id="slide-out" class="side-nav fixed">
+            <li>
+                <div class="logo"> <img class="background" src="img/logocarfleet.png"> </div>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion" ng-repeat="item in list | filter:{id_companytype:1}">
+                    <li class="bold"><a class="collapsible-header waves-effect waves-teal">{{item.name}}</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li ng-repeat="company in list | filter:{id_company:item.id}"><a href="#/companies/{{company.id_company}}/company/{{company.id}}/{{company.name}}" class="waves-effect">{{company.name}}</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="progress" id="load">
+            <div class="indeterminate"></div>
+        </div>
+        <ng-view></ng-view>
+    </main>
+    <footer></footer>
+    <script src="js/vendor/jquery-2.2.3.min.js"></script>
+    <script src="js/vendor/lodash.min.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/angular-route.min.js"></script>
+    <script src="js/vendor/angular-resource.js"></script>
+    <script src="js/vendor/materialize.js"></script>
+    <script src="js/vendor/angular-materialize.min.js"></script>
+    <script src="js/vendor/materialize.clockpicker.js"></script>
+    <script src="js/asset/app.js"></script>
+    <script src="js/asset/service.js"></script>
+    <script src="js/asset/factoryPass.js"></script>
+    <script src="js/asset/factoryCompany.js"></script>
+    <script src="js/asset/factoryFleet.js"></script>
+    <script src="js/asset/factoryUser.js"></script>
+    <script src="js/asset/factoryVehicle.js"></script>
+    <script src="js/asset/factoryDriver.js"></script>
+    <script src="js/asset/factoryDevice.js"></script>
+    <script src="js/asset/factoryPoi.js"></script>
+    <script src="js/asset/factorySim.js"></script>
+    <script src="js/asset/ctrlCompany.js"></script>
+    <script src="js/asset/ctrlFleet.js"></script>
+    <script src="js/asset/ctrlUser.js"></script>
+    <script src="js/asset/ctrlVehicle.js"></script>
+    <script src="js/asset/ctrlPoi.js"></script>
+    <script src="js/asset/ctrlDriver.js"></script>
+    <script src="js/asset/ctrlDevice.js"></script>
+    <script src="js/asset/ctrlSim.js"></script>
+    <script>
+        $(document).ready(function () {
+            //progress
+            $('.progress').hide();
+            //sidenav
+            $('.button-collapse').sideNav();
+             $('ul.tabs').tabs();
+            //collapse
+            $(document).on('click', '.collapsible-header', function () {
+                $(this).next().slideToggle('fast');
+                if ($(this).parent().hasClass('open')) {
+                    $(this).parent().removeClass('open');
+                }
+                else {
+                    $(this).parent().addClass('open');
+                }
+            });
+            
+            //tooltip
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        });
+    </script>
+</body>
+
+</html>

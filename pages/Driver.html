@@ -1,0 +1,52 @@
+<div ng-controller="driversCtrl">
+    <br>
+    <div class="row">
+        <div ng-controller="driverCtrl">
+            <div class="col s6">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>{{translation.driver1}}</h4></li>
+                    <li class="collection-item" ng-repeat="item in driver">
+                        <div ng-click="clickevent($index, item.id, item.name, item.surname, item.id_company, item.personal_id, item.phone_number)">{{item.name}} {{item.surname}}<i class="material-icons secondary-content">send</i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s6">
+                <div class="input-field col s12">
+                    <input type="text" id="name" class="input-field col s12" ng-model="name">
+                    <label class="active" for="name">{{translation.driver2}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="surname" class="input-field col s12" ng-model="surname">
+                    <label class="active" for="surname">{{translation.driver3}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="personal_id" class="input-field col s12" ng-model="personal_id">
+                    <label class="active" for="personal_id">{{translation.driver4}}</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text" id="phone_number" class="input-field col s12" ng-model="phone_number">
+                    <label class="active" for="phone_number">{{translation.driver5}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn red" ng-click="cancelDriver()">{{translation.buttonCancel}} <i class="fa fa-remove"></i></button>
+                <button id="updateD" class="waves-effect waves-light btn blue" ng-click="updateDriver()">{{translation.buttonUpdate}} <i class="material-icons">check</i></button>
+                <button id="insertD" class="waves-effect waves-light btn blue" ng-click="insertDriver()">{{translation.buttonCreate}} <i class="material-icons">check</i></button>
+            </div>
+            <!--Menu-->
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red"> <i class="material-icons">apps</i> </a>
+                <ul>
+                    <li data-toggle="tooltip" data-placement="left" title="Borrar"><a class="btn-floating red {{isDisabled}}" ng-click="deleteDriver()"><i class="material-icons">remove</i></a></li>
+                    <li data-toggle="tooltip" data-placement="left" title="Nuevo"><a id="nuevo" class="btn-floating green" ng-click="limpiarDriver()"><i class="material-icons">add</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#insertD").hide();
+    });
+</script>

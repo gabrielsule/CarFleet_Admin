@@ -1,0 +1,76 @@
+<div class="container" ng-controller="companyCtrl">
+    <br>
+    <div class="row">
+        <div class="input-field col s12">
+            <select class="" id="tipo" ng-model="selected" ng-options="item.id as item.type for item in options" material-select watch>
+                <option value="" disabled selected>{{translation.company1}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="name" class="input-field col s12" ng-model="company.name">
+            <label class="active" for="name">{{translation.company2}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="cif" class="input-field col s12" ng-model="company.cif">
+            <label class="active" for="cif">{{translation.company3}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="address" class="input-field col s12" ng-model="company.address">
+            <label class="active" for="address">{{translation.company4}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="tel" class="input-field col s12" ng-model="company.phone_number">
+            <label class="active" for="tel">{{translation.company5}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="fax" class="input-field col s12" ng-model="company.fax_number">
+            <label class="active" for="fax">{{translation.company6}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="email" id="email" class="input-field col s12" ng-model="company.email_address">
+            <label class="active" for="email">{{translation.company7}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="alta" class="input-field col s12 datepicker" ng-model="company.registry_date_time">
+            <label class="active" for="alta">{{translation.company8}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="waves-effect waves-light btn red" ng-click="cancelCompany()">{{translation.buttonCancel}} <i class="fa fa-remove"></i></button>
+        <button id="update" class="waves-effect waves-light btn blue" ng-click="updateCompany()">{{translation.buttonUpdate}} <i class="material-icons">check</i></button>
+        <button id="insert" class="waves-effect waves-light btn blue" ng-click="insertCompany()">{{translation.buttonCreate}} <i class="material-icons">check</i></button>
+    </div>
+    <!--Menu-->
+
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red"> <i class="material-icons">apps</i> </a>
+        <ul>
+            <li data-toggle="tooltip" data-placement="left" title="Borrar"><a class="btn-floating red {{isDisabled}}" ng-click="deleteCompany()"><i class="material-icons">remove</i></a></li>
+            <li data-toggle="tooltip" data-placement="left" title="Nuevo"><a id="nuevo" class="btn-floating green" ng-click="limpiarCompany()"><i class="material-icons">add</i></a></li>
+        </ul>
+    </div>
+    <!--Menu-->
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.datepicker').pickadate();
+        $('.mdb-select').material_select();
+        //
+        $("#insert").hide();
+    });
+</script>
